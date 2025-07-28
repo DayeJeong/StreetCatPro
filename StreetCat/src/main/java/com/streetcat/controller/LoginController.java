@@ -8,7 +8,7 @@ public class LoginController {
 	//페이지이동
 	@GetMapping("/login")
 	public String toLog(){
-		return "/Login";
+		return "login/Login";	// templates/login/Login.html
 	}
 	
 }
