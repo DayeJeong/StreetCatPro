@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapper namespace="com.streetcat.repository.LoginMapper">
+
+	<insert id="insertUser" parameterType="com.streetcat.domain.LoginDto">
+		INSERT INTO USER
+		(
+		USER_ID,
+		USERNAME,
+		PASSWORD,
+		NAME,
+		EMAIL,
+		ADDRESS,
+		PHONENUMBER
+		)
+		VALUES
+		(
+        (SELECT COALESCE(MAX(userId), 0) + 1 FROM users),
+		#{username},
+		#{password},
+		#{name},
+		#{email},
+		#{address},
+		#{phonenumber}
+		)
+	</insert>
+
+</mapper>
