@@ -1,27 +1,28 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.streetcat.repository.LoginMapper">
 
 	<insert id="insertUser" parameterType="com.streetcat.domain.LoginDto">
-		INSERT INTO USER
-		(
-		USER_ID,
-		USERNAME,
-		PASSWORD,
-		NAME,
-		EMAIL,
-		ADDRESS,
-		PHONENUMBER
-		)
-		VALUES
-		(
-        (SELECT COALESCE(MAX(userId), 0) + 1 FROM users),
-		#{username},
-		#{password},
-		#{name},
-		#{email},
-		#{address},
-		#{phonenumber}
-		)
+	    INSERT INTO USER (
+	        USER_ID,
+	        USERNAME,
+	        PASSWORD,
+	        NAME,
+	        EMAIL,
+	        ADDRESS,
+	        PHONENUMBER
+	    ) VALUES (
+	        (SELECT new_id FROM (
+	            SELECT COALESCE(MAX(USER_ID), 0) + 1 AS new_id FROM USER
+	        ) AS temp),
+	        #{username},
+	        #{password},
+	        #{name},
+	        #{email},
+	        #{address},
+	        #{phonenumber}
+	    )
 	</insert>
 
 </mapper>
