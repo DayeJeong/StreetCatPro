@@ -22,4 +22,11 @@ public class LoginService {
 		
 	}
 
+	public String usernamecheck(LoginDto loginDto) {
+		
+		String result = loginRepository.usernamecheck(loginDto);
+		
+		return result;
+	}
+
 }

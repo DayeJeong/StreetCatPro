@@ -9,4 +9,6 @@ public interface LoginMapper {
 
 	void insertUser(LoginDto loginDto);
 
+	String usernamecheck(LoginDto loginDto);
+
 }

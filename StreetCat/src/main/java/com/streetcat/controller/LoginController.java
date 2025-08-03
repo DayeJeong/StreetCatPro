@@ -1,9 +1,13 @@
 package com.streetcat.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.streetcat.domain.LoginDto;
 import com.streetcat.service.LoginService;
@@ -26,7 +30,6 @@ public class LoginController {
 	//회원가입페이지 구현
 	@GetMapping("/register")
 	public String register(){
-		System.out.println("--------------------");
 		return "login/register";
 	}
 	
@@ -39,5 +42,25 @@ public class LoginController {
 		
 		return "redirect:/login";
 		
+	}
+	
+	@GetMapping("/register/usernamecheck")
+	@ResponseBody
+	public Map<String, Boolean> usernamecheck(LoginDto loginDto) {
+		
+		log.info("username: {}", loginDto.getUsername());
+		
+		String check = service.usernamecheck(loginDto);
+		
+		log.info("check: {}", check);
+		
+		boolean isAvailable = (check == null || check.isEmpty());
+		
+		Map<String, Boolean> result = new HashMap<>();
+	    result.put("isAvailable", isAvailable);
+
+	    log.info("result: {}",result);
+	    
+		return result;
 	}
 }
