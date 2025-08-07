@@ -21,19 +21,26 @@ public class LoginController {
 	@Autowired
 	LoginService service;
 	
-	//페이지이동
-	@GetMapping("/login")
+	//로그인페이지
+	@GetMapping("/login/login")
 	public String toLog(){
 		return "login/Login";	// templates/login/Login.html
 	}
 	
+	// 실패시 리다이렉트
+	@GetMapping("/login")
+    public String loginRootRedirect() {
+        return "redirect:/login/login";
+    }
+	
+	
 	//회원가입페이지 구현
-	@GetMapping("/register")
+	@GetMapping("/login/register")
 	public String register(){
 		return "login/register";
 	}
 	
-	@PostMapping("/registerinfo")
+	@PostMapping("/login/registerinfo")
 	public String registerinfo(LoginDto loginDto) {
 		
 		log.info("loginDto: {}",loginDto);
@@ -62,5 +69,9 @@ public class LoginController {
 	    log.info("result: {}",result);
 	    
 		return result;
+	}
+	@GetMapping("/home")
+	public String homePage() {
+		return "home";
 	}
 }

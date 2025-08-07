@@ -15,7 +15,7 @@
         <p style="color:green;">성공적으로 로그아웃되었습니다.</p>
     </div>
 
-    <form th:action="@{/login}" method="post">
+    <form action="/login/login" method="post">
         <div>
             <label>아이디: <input type="text" name="username"/></label>
         </div>
@@ -27,7 +27,7 @@
         </div>
     </form>
     <div>
-    	<a type="button" th:href="@{register}">화원가입</a>
+    	<a type="button" th:href="@{/login/register}">화원가입</a>
     </div>
 </body>
 </html>
