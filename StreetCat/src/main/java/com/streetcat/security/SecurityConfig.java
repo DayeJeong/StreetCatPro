@@ -2,6 +2,8 @@ package com.streetcat.security;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.context.annotation.Bean;
 
@@ -13,12 +15,15 @@ public class SecurityConfig {
         http
         	.csrf(csrf -> csrf.disable())
         	.authorizeHttpRequests(auth -> auth
-                .requestMatchers("/login", "/css/**", "/js/**", "/register", "/registerinfo" , "/register/**").permitAll()  // 이게 핵심!
+                .requestMatchers("/login/**", "/css/**", "/js/**", "/register/**").permitAll()  // 이게 핵심!
                 .anyRequest().authenticated()
             )
             .formLogin(form -> form
-                .loginPage("/login")
-                .defaultSuccessUrl("/") // 로그인 성공 후 이동할 페이지
+                .loginPage("/login/login")
+                .loginProcessingUrl("/login/login") // 실질적인 로그인 구현 URL
+                .usernameParameter("username")
+                .passwordParameter("password")
+                .defaultSuccessUrl("/home") // 로그인 성공 후 이동할 페이지
                 .failureUrl("/login?error")
                 .permitAll()
             )
@@ -28,4 +33,10 @@ public class SecurityConfig {
 
         return http.build();
     }
+    
+    @Bean //패스워드 암호화
+    public PasswordEncoder getPasswordEncoder() {
+  	return new BCryptPasswordEncoder();
+    }
+
 }

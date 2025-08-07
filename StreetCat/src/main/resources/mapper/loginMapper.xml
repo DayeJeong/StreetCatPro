@@ -30,5 +30,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT USERNAME FROM USER WHERE USERNAME = #{username}
 	
 	</select>
+	
+	<select id="membercheck" parameterType="String" resultType="com.streetcat.security.CustomMemberDetails">
+	
+		SELECT * FROM USER WHERE USERNAME = #{username}
+	
+	</select>
 
 </mapper>
