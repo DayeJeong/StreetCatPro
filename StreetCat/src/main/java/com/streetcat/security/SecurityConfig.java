@@ -23,7 +23,7 @@ public class SecurityConfig {
                 .loginProcessingUrl("/login/login") // 실질적인 로그인 구현 URL
                 .usernameParameter("username")
                 .passwordParameter("password")
-                .defaultSuccessUrl("/home") // 로그인 성공 후 이동할 페이지
+                .defaultSuccessUrl("/home" ,true) // 로그인 성공 후 이동할 페이지
                 .failureUrl("/login?error")
                 .permitAll()
             )
