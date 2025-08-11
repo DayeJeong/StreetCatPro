@@ -9,8 +9,9 @@ import org.springframework.stereotype.Service;
 import com.streetcat.repository.LoginMapper;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
-
+@Slf4j
 @RequiredArgsConstructor
 @Service
 public class CustomMemberDetailsService implements UserDetailsService {
@@ -28,9 +29,16 @@ public class CustomMemberDetailsService implements UserDetailsService {
     System.out.println("   username : " + members.getUsername());
     System.out.println("***************************************");
  
+    log.info(members.getUsername());
+    log.info(members.getPassword());
+    
     CustomMemberDetails userDetails = new CustomMemberDetails();
     userDetails.setUsername(members.getUsername());
     userDetails.setPassword(members.getPassword());
+    userDetails.setEnabled(1); // 강제로 함해
+    userDetails.setAuth("ROLE_USER");
+    
+    log.info("리턴 : {}" ,userDetails);
     
     return userDetails;
   }
