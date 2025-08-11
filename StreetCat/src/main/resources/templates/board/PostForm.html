@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>커뮤니티 게시판</title>
+</head>
+<body>
+	<h2>게시판 글쓰기</h2>
+	<!-- 지역 설정 시-> 군-> 동.. 지역별 검색
+	자유게시
+	--> 
+	<form action="/board/write" method="post">
+		<label for="boardCategory">게시판 종류</label>
+		<select id="boardCategory" name=""boardCategory"">
+		    <option value="">-- 선택하세요 --</option>
+		    <option value="free">자유게시판</option>
+		    <option value="local">동네게시판</option>
+		</select>
+		 
+		<label for="city">지역 선택</label>
+		<select id="city" required>
+		    <option value="">-- 선택하세요 --</option>
+		    <option>서울</option>
+            <option>부산</option>
+            <option>대구</option>
+            <option>인천</option>
+            <option>광주</option>
+            <option>대전</option>
+            <option>울산</option>
+            <option>세종</option>
+            <option>경기</option>
+            <option>강원</option>
+            <option>충북</option>
+            <option>충남</option>
+            <option>전북</option>
+            <option>전남</option>
+            <option>경북</option>
+            <option>경남</option>
+            <option>제주</option>
+		</select>
+	</form>
+	
+	
+</body>
+</html>
