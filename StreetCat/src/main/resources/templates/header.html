@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<header th:fragment="header">
+	<ul>
+		<li><a >자유게시판</a></li>
+		<li><a >지역게시판</a></li>
+		<li><a >검색</a></li>
+	</ul>
+	
+	<ul>
+	<!--로그인 전  :  어차피 로그인해야 게시판 들어옴.. 결정해
+	-->
+		<li sec:authorize="!isAuthenticated()">
+            <a th:href="@{/login/login}">로그인</a>
+        </li>
+        <li sec:authorize="!isAuthenticated()">
+            <a th:href="@{/login/register}">회원가입</a>
+        </li>
+
+	<!--로그인 후-->
+		<li sec:authorize="isAuthenticated()">
+            <form th:action="@{/logout}" method="post" style="display:inline;">
+                <button type="submit">로그아웃</button>
+            </form>
+        </li>
+	</ul>
+</header>
+</body>
+</html>

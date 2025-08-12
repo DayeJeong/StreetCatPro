@@ -74,4 +74,10 @@ public class LoginController {
 	public String homePage() {
 		return "home";
 	}
+	
+	//로그아웃
+	@GetMapping("/logout")
+	public String logOut() {
+		return "login/Login";
+	}
 }

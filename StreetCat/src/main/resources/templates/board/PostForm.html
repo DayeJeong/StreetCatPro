@@ -5,16 +5,18 @@
 <title>커뮤니티 게시판</title>
 </head>
 <body>
-	<h2>게시판 글쓰기</h2>
+	<h2>게시판 글</h2>
 	<!-- 지역 설정 시-> 군-> 동.. 지역별 검색
 	자유게시
 	--> 
 	<form action="/board/write" method="post">
 		<label for="boardCategory">게시판 종류</label>
-		<select id="boardCategory" name=""boardCategory"">
+		<select id="boardCategory" name="boardCategory">
 		    <option value="">-- 선택하세요 --</option>
 		    <option value="free">자유게시판</option>
 		    <option value="local">동네게시판</option>
+		    <!--자유게시판 선택시 지역 선택 disabled 처리해야돼
+		 -->
 		</select>
 		 
 		<label for="city">지역 선택</label>
@@ -38,8 +40,22 @@
             <option>경남</option>
             <option>제주</option>
 		</select>
+		
+		<div>
+            <label>제목:
+                <input type="text" name="title" placeholder="제목을 입력하세요" required>
+            </label>
+        </div>
+        
+        <div>
+            <label>내용:</label><br>
+            <textarea name="content" rows="10" cols="50" placeholder="내용을 입력하세요" required></textarea>
+        </div>
+		
+		<div>
+			<button type="submit" id="createPost">저장</button>
+		</div>
 	</form>
-	
-	
+
 </body>
 </html>
