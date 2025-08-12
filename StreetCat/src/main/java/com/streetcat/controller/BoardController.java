@@ -18,6 +18,11 @@ public class BoardController {
 		return "board/PostForm";
 	}
 	
+	/*
+	 * //자유게시판
+	 * 
+	 * @GetMapping("/board/free") public String freeBoard() { return "board/ }
+	 */
 	
 }
 	
