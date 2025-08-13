@@ -5,16 +5,16 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.streetcat.domain.LoginDto;
-import com.streetcat.repository.LoginMapper;
+import com.streetcat.mapper.LoginMapper;
 
 @Service
 public class LoginService {
 	
-	private final LoginMapper loginRepository;
+	private final LoginMapper loginmapper;
 	
     @Autowired
-    public LoginService(LoginMapper loginRepository) {
-        this.loginRepository = loginRepository;
+    public LoginService(LoginMapper loginmapper) {
+        this.loginmapper = loginmapper;
     }
     
     @Autowired
@@ -24,13 +24,13 @@ public class LoginService {
 		
 		loginDto.setPassword(passwordEncoder.encode(loginDto.getPassword()));
 		
-		loginRepository.insertUser(loginDto);
+		loginmapper.insertUser(loginDto);
 		
 	}
 
 	public String usernamecheck(LoginDto loginDto) {
 		
-		String result = loginRepository.usernamecheck(loginDto);
+		String result = loginmapper.usernamecheck(loginDto);
 		
 		return result;
 	}

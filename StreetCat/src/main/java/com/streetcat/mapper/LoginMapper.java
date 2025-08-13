@@ -1,4 +1,4 @@
-package com.streetcat.repository;
+package com.streetcat.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 
