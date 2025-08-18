@@ -15,7 +15,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	    ) VALUES (
 	        (SELECT new_id FROM (
 	            SELECT COALESCE(MAX(USER_ID), 0) + 1 AS new_id FROM USER
-	        ) AS temp),
+	        ) AS usernum),
 	        #{username},
 	        #{password},
 	        #{name},
@@ -25,7 +25,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	    )
 	</insert>
 	
-	<select id="usernamecheck" resultType="String" parameterType="String">
+	<select id="usernamecheck" parameterType="String" resultType="String">
 	
 		SELECT USERNAME FROM USER WHERE USERNAME = #{username}
 	
@@ -35,6 +35,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 		SELECT * FROM USER WHERE USERNAME = #{username}
 	
+	</select>
+	
+	<select id="selectId" parameterType="String" resultType="Integer">
+	
+		SELECT USER_ID FROM USER WHERE USERNAME = #{username}
+		
+	</select>
+	
+	<select id="selectUsername" parameterType="Integer" resultType="String">
+	
+		SELECT USERNAME FROM USER WHERE USER_ID = #{id}
 	</select>
 
 </mapper>

@@ -14,4 +14,8 @@ public interface LoginMapper {
 
 	CustomMemberDetails membercheck(String email);
 
+	int selectId(String username);
+
+	String selectUsername(int id);
+
 }

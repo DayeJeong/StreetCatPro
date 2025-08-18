@@ -4,8 +4,10 @@ import lombok.Data;
 
 @Data
 public class PostDto {
+	private int user_id;
 	private String title;
 	private String content;
+	private String writer;
 	private String created_time;
 	private String updated_time;
 	private String region;

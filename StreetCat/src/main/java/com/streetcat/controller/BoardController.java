@@ -1,7 +1,10 @@
 package com.streetcat.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -16,7 +19,11 @@ public class BoardController {
 	
 	//게시판
 	@GetMapping("/board/board")
-	public String boardMain() {
+	public String boardMain(Model model) {
+		//게시물 리스트 받아오기
+		List<PostDto> list = postService.selectAll();
+		model.addAttribute("posts", list);
+		
 		return "board/Board";
 	}
 	
@@ -28,9 +35,9 @@ public class BoardController {
 	
 	//게시글 저장
 	@PostMapping("/board/newPost")
-	public void newposting(PostDto postDto) {
+	public String newposting(PostDto postDto) {
 		postService.newposting(postDto);
-		
+		return "redirect:/board/board";
 	}
 	/*
 	 * //자유게시판

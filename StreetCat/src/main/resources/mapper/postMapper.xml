@@ -1,1 +1,36 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.streetcat.mapper.PostMapper">
+
+	<insert id="insertPost" parameterType="com.streetcat.domain.PostDto">
+	
+	INSERT INTO BOARD (
+			BOARD_ID,
+			USER_ID,
+	        TITLE,
+	        CONTENT,
+	        CREATED_TIME,
+	        UPDATED_TIME,
+	        REGION
+	    ) VALUES (
+	        (SELECT new_id FROM (
+	            SELECT COALESCE(MAX(BOARD_ID), 0) + 1 AS new_id FROM BOARD
+	        ) AS postnum),
+	        #{user_id},
+	        #{title},
+	        #{content},
+	        NOW(),
+	        #{updated_time},
+	        #{region}
+	    )
+	
+	</insert>
+	
+	<select id="selectAll" resultType="com.streetcat.domain.PostDto">
+	
+		SELECT * FROM BOARD
+	
+	</select>
+	</mapper>
