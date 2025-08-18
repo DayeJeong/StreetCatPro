@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.streetcat.repository")
+@MapperScan("com.streetcat.mapper")
 public class StreetCatApplication {
 
 	public static void main(String[] args) {

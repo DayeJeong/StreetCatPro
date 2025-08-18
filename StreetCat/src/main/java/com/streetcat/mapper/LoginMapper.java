@@ -1,4 +1,4 @@
-package com.streetcat.repository;
+package com.streetcat.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -13,5 +13,9 @@ public interface LoginMapper {
 	String usernamecheck(LoginDto loginDto);
 
 	CustomMemberDetails membercheck(String email);
+
+	int selectId(String username);
+
+	String selectUsername(int id);
 
 }
