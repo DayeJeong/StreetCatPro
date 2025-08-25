@@ -33,4 +33,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM BOARD
 	
 	</select>
+	
+	<select id="selectDetail" parameterType="Integer" resultType="com.streetcat.domain.PostDto">
+	
+		SELECT * FROM BOARD WHERE BOARD_ID = #{board_id}
+	
+	</select>
+	
+	
 	</mapper>

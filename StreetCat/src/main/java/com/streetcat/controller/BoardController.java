@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.streetcat.domain.PostDto;
@@ -25,6 +26,16 @@ public class BoardController {
 		model.addAttribute("posts", list);
 		
 		return "board/Board";
+	}
+	
+	//해당게시글로 이동
+	@GetMapping("/board/{board_id}")
+	public String boardDetail(@PathVariable("board_id") int board_id, Model model) {
+		PostDto dto = postService.selectDetail(board_id);
+		model.addAttribute("detail", dto);
+		System.out.println("뭐가나오니? ----- "+dto);
+		
+		return "board/PostDetail";
 	}
 	
 	//글쓰기

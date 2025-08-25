@@ -13,4 +13,6 @@ public interface PostMapper {
 
 	List<PostDto> selectAll();
 
+	PostDto selectDetail(int board_id);
+
 }

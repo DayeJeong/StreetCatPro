@@ -65,7 +65,7 @@
     </thead>
     <tbody>
     <tr th:each="post : ${posts}">
-        <td th:text="${post.title}" ><!-- <a th:href="@{'/board/' + ${post.id}}" ></a> --></td>
+        <td><a th:text="${post.title}" th:href="@{'/board/' + ${post.board_id}}"></a></td>
         <td th:text="${post.writer}"></td>
         <td th:text="${post.region}"></td>
         <td th:text="${post.created_time}"></td>
