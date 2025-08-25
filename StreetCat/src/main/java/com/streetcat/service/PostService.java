@@ -59,4 +59,13 @@ public class PostService {
 		return list;
 	}
 
+	public PostDto selectDetail(int board_id) {
+		PostDto dto = postmapper.selectDetail(board_id);
+		
+		String username = loginmapper.selectUsername(dto.getUser_id());
+		dto.setWriter(username);
+		
+		return dto;
+	}
+
 }
