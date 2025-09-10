@@ -50,6 +50,25 @@ public class BoardController {
 		postService.newposting(postDto);
 		return "redirect:/board/board";
 	}
+	
+	//게시글 수정
+	@GetMapping("/board/edit/{board_id}")
+	public String editPost(@PathVariable("board_id") int board_id, PostDto postDto,  Model model) {
+		PostDto dto = postService.selectEdit(board_id);
+		
+		model.addAttribute("edit", dto);
+		
+		return "board/EditForm";
+	}
+	
+	//업데이트
+	@PostMapping("/board/update/{board_id}")
+	public String updatePost(@PathVariable("board_id") int board_id, PostDto postDto) {
+		
+		postService.updatePost(postDto);
+		return "redirect:/board/board";
+	}
+	
 	/*
 	 * //자유게시판
 	 * 

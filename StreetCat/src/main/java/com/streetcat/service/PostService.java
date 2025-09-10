@@ -68,4 +68,34 @@ public class PostService {
 		return dto;
 	}
 
+//	public void editposting(int board_id, PostDto postDto) {
+//		int updatecut = postmapper.
+//		
+//	}
+
+	public PostDto selectEdit(int board_id) {
+		PostDto dto = postmapper.selectDetail(board_id);
+		
+		System.out.println(dto.getUser_id());
+		
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal(); 
+		UserDetails userDetails = (UserDetails)principal; 
+		
+		String username = userDetails.getUsername(); 
+				
+		int id = loginmapper.selectId(username);
+		
+		if(id != dto.getUser_id()) {
+			System.out.println("아이디가 달라요!");
+		}
+		
+		return dto;
+	}
+
+	public void updatePost(PostDto postDto) {
+		postmapper.updatePost(postDto);
+		
+		
+	}
+
 }
