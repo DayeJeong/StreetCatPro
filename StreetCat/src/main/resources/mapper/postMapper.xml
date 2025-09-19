@@ -40,5 +40,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	</select>
 	
+	<update id="updatePost" parameterType="com.streetcat.domain.PostDto">
+	
+		UPDATE BOARD
+		SET 
+		TITLE = #{title},
+		CONTENT = #{content},
+		UPDATED_TIME = NOW()
+		WHERE BOARD_ID = #{board_id}
+	
+	</update>
+	
 	
 	</mapper>

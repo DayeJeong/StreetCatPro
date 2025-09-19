@@ -15,4 +15,6 @@ public interface PostMapper {
 
 	PostDto selectDetail(int board_id);
 
+	void updatePost(PostDto postDto);
+
 }
