@@ -6,7 +6,11 @@
 </head>
 <body>
 	<div th:replace="header :: header"></div>
-
+	
+	<div>수정일:
+		<span th:text="${detail.updated_time}"></span>
+	</div>
+	
 	<div>
 		<h2>제목</h2>
 		<div th:text="${detail.title}"></div>
@@ -21,6 +25,9 @@
 	<div>
 		<h2>작성자</h2>
 		<div th:text="${detail.writer}"></div>
+	</div>
+	<div>
+		<a type="button" name="edit" th:href="@{'/board/edit/' + ${detail.board_id}}">수정하기</a>
 	</div>
 </body>
 </html>
