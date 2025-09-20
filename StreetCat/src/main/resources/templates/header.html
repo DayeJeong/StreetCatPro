@@ -8,28 +8,26 @@
 </head>
 <body>
 <header th:fragment="header">
-	<ul>
-		<li>
+	<div style="position: fixed; right: 0;">
+		
+		<!--로그인 전  :  어차피 로그인해야 게시판 들어옴.. 결정해-->
+		<div sec:authorize="!isAuthenticated()">
+            <a th:href="@{/login/login}">로그인</a>
+        </div>
+        <div sec:authorize="!isAuthenticated()">
+            <a th:href="@{/login/register}">회원가입</a>
+        </div>
+
+		<!--로그인 후-->
+		<div sec:authorize="isAuthenticated()">
 			<a >자유게시판</a>
 			<a >지역게시판</a>
 			<a >검색</a>
-		</li>
-	
-		<!--로그인 전  :  어차피 로그인해야 게시판 들어옴.. 결정해-->
-		<li sec:authorize="!isAuthenticated()">
-            <a th:href="@{/login/login}">로그인</a>
-        </li>
-        <li sec:authorize="!isAuthenticated()">
-            <a th:href="@{/login/register}">회원가입</a>
-        </li>
-
-		<!--로그인 후-->
-		<li sec:authorize="isAuthenticated()">
             <form th:action="@{/logout}" method="post" style="display:inline;">
                 <button type="submit">로그아웃</button>
         	</form>
-    	</li>
-	</ul>
+    	</div>
+	</div>
 	
 </header>
 </body>
