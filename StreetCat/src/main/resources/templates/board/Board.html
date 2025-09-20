@@ -5,9 +5,9 @@
 <title>게시판</title>
 </head>
 <body>
-<h1>게시판</h1>
-
 <div th:replace="header :: header"></div>
+
+<h1>게시판</h1>
 
 <!-- 카테고리 -->
 <form  method="get">
@@ -18,7 +18,7 @@
         </select>
     </label>
 <!-- 지역 -->
-    <label>지역 선택
+    <!-- <label>위
         <select name="region" >
             <option value="">-- 전체 --</option>
             <option value="서울" >서울</option>
@@ -40,7 +40,10 @@
             <option value="제주" >제주</option>
         
         </select>
-    </label>
+    </label> -->
+    <div>위치
+    	<a href=""></a>
+    </div>
 <!-- 검색 -->
     <label>검색
         <input type="text" name="keyword" placeholder="검색어 입력">
