@@ -4,12 +4,19 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>header</title>
+
 </head>
 <body>
 <header th:fragment="header">
+<link rel="stylesheet" th:href="@{/css/Header.css}" />
+	<ul>
+		<li>
+			<a >자유게시판</a>
+			<a >지역게시판</a>
+			<a >검색</a>
+		</li>
 	<div style="position: fixed; right: 0;">
-		
 		<!--로그인 전  :  어차피 로그인해야 게시판 들어옴.. 결정해-->
 		<div sec:authorize="!isAuthenticated()">
             <a th:href="@{/login/login}">로그인</a>
@@ -24,7 +31,7 @@
 			<a >지역게시판</a>
 			<a >검색</a>
             <form th:action="@{/logout}" method="post" style="display:inline;">
-                <button type="submit">로그아웃</button>
+                <button class="logout-button" type="submit">로그아웃</button>
         	</form>
     	</div>
 	</div>

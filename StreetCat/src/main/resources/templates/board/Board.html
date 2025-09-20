@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>게시판</title>
+<link rel="stylesheet" th:href="@{/css/Board.css}" />
 </head>
 <body>
 <div th:replace="header :: header"></div>
@@ -53,7 +54,7 @@
 <!-- 글쓰기 -->
 
 <div>
-    <a type="button" name="write" th:href="@{/board/write}">글쓰기</a>
+    <a type="button" name="write" class="button-link" th:href="@{/board/write}">글쓰기</a>
 </div>
 
 <!-- 게시글 목록 -->
@@ -90,7 +91,7 @@
 
 <!-- 글쓰기 -->
 <div>
-    <a type="button" name="write" th:href="@{/board/write}">글쓰기</a>
+    <a type="button" name="write" class="button-link" th:href="@{/board/write}">글쓰기</a>
 </div>
 
 </body>
