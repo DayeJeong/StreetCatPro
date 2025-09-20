@@ -4,10 +4,12 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>header</title>
+
 </head>
 <body>
 <header th:fragment="header">
+<link rel="stylesheet" th:href="@{/css/Header.css}" />
 	<ul>
 		<li>
 			<a >자유게시판</a>
@@ -26,7 +28,7 @@
 		<!--로그인 후-->
 		<li sec:authorize="isAuthenticated()">
             <form th:action="@{/logout}" method="post" style="display:inline;">
-                <button type="submit">로그아웃</button>
+                <button class="logout-button" type="submit">로그아웃</button>
         	</form>
     	</li>
 	</ul>

@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>회원가입</title>
+    <link rel="stylesheet" th:href="@{/css/Register.css}" />
 </head>
 <body>
 	<form action="/login/registerinfo" method="post">
@@ -12,8 +13,8 @@
 			<p style="color:red;">특수문자 포함하지 않는 2~10자리</p>
 			<input id="username" name="username" type="text" placeholder="아이디를 입력하세요">
 			<button type="button" id="checkUsername">아이디 중복 확인</button>
-			<span id="usernamecheck" style="display: none;"></span>
 		</div>
+		<span id="usernamecheck" style="display: none;"></span>
 		<div>
 			<h2>비밀번호</h2>
 			<p style="color:red;">문자와 숫자, 특수기호 1개이상씩 포함 4~20자리</p>

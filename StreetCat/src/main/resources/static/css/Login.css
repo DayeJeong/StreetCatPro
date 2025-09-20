@@ -1,0 +1,89 @@
+@charset "UTF-8";
+
+* login.css *
+
+body {
+    background-color: #fff;
+    font-family: 'Helvetica Neue', sans-serif;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    height: 100vh;
+    margin: 0;
+}
+
+form {
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+label {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #555;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus{
+	border-color: #bd7bf5;
+	outline: none;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #bd7bf5;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+    background-color: #9d2bff;
+}
+
+div[th\:if] p {
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+a[type="button"] {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #bd7bf5;
+    font-size: 14px;
+}
+
+a[type="button"]:hover {
+    text-decoration: underline;
+}
