@@ -8,7 +8,7 @@
 
 	<div th:replace="header :: header"></div>
 	
-	<h2>게시판 글</h2>
+	<h2>게시판 글쓰</h2>
 	<!-- 지역 설정 시-> 군-> 동.. 지역별 검색
 	자유게시
 	--> 
@@ -17,33 +17,13 @@
 		<select id="boardCategory" name="boardCategory">
 		    <option value="">-- 선택하세요 --</option>
 		    <option value="free">자유게시판</option>
-		    <option value="local">동네게시판</option>
-		    <!--자유게시판 선택시 지역 선택 disabled 처리해야돼
-		 -->
+		    <option value="info">정보게시판</option>
+		    <!--자유게시판 선택시 지역 선택 disabled 처리해야돼-->
 		</select>
-		 
-		<label for="city">지역 선택</label>
-		<select id="city" name="region" required>
-		    <option value="">-- 선택하세요 --</option>
-		    <option>서울</option>
-            <option>부산</option>
-            <option>대구</option>
-            <option>인천</option>
-            <option>광주</option>
-            <option>대전</option>
-            <option>울산</option>
-            <option>세종</option>
-            <option>경기</option>
-            <option>강원</option>
-            <option>충북</option>
-            <option>충남</option>
-            <option>전북</option>
-            <option>전남</option>
-            <option>경북</option>
-            <option>경남</option>
-            <option>제주</option>
-		</select>
-		
+		<div>위치 선택
+    	<a type="button" name="map" class="map" href="/map">지도</a>
+    	</div>
+    	
 		<div>
             <label>제목:
                 <input th:value="${edit.title}" type="text" name="title" required>
