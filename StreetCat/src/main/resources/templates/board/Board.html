@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>게시판</title>
-<link rel="stylesheet" th:href="@{/css/Board.css}" />
+<link rel="stylesheet" href="/css/Board.css" />
 </head>
 <body>
 <div th:replace="header :: header"></div>
@@ -14,37 +14,11 @@
 <form  method="get">
     <label>게시판 종류
         <select name="boardCategory">
-            <option value="free" >자유게시판</option>
-            <option value="local" >동네게시판</option>
+            <option value="free">자유게시판</option>
+            <option value="info">정보게시판</option>
         </select>
     </label>
-<!-- 지역 -->
-    <!-- <label>위
-        <select name="region" >
-            <option value="">-- 전체 --</option>
-            <option value="서울" >서울</option>
-            <option value="부산" >부산</option>
-            <option value="대구" >대구</option>
-            <option value="인천" >인천</option>
-            <option value="광주" >광주</option>
-            <option value="대전" >대전</option>
-            <option value="울산" >울산</option>
-            <option value="세종" >세종</option>
-            <option value="경기" >경기</option>
-            <option value="강원" >강원</option>
-            <option value="충북" >충북</option>
-            <option value="충남" >충남</option>
-            <option value="전북" >전북</option>
-            <option value="전남" >전남</option>
-            <option value="경북" >경북</option>
-            <option value="경남" >경남</option>
-            <option value="제주" >제주</option>
-        
-        </select>
-    </label> -->
-    <div>위치
-    	<a href=""></a>
-    </div>
+    
 <!-- 검색 -->
     <label>검색
         <input type="text" name="keyword" placeholder="검색어 입력">
